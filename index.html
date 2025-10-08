@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Penerjemah Bahasa Moni & Wolani</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0; padding: 0;
@@ -19,38 +19,60 @@
 
     header {
       text-align: center;
-      padding: 25px;
-      font-size: 2.5em;
-      font-weight: 700;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
       color: #fff;
-      text-shadow: 0 0 20px #6a11cb, 0 0 40px #2575fc;
+      text-shadow: 0 0 15px #6a11cb, 0 0 25px #2575fc;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #4facfe;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #6a11cb;
+    }
+
+    section {
+      padding: 50px 10%;
       animation: fadeIn 1.5s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
       display: flex;
       justify-content: center;
-      margin: 40px auto;
-      width: 90%;
-      max-width: 1100px;
-      gap: 20px;
       flex-wrap: wrap;
-      animation: fadeIn 1.5s ease;
+      gap: 20px;
     }
-
     .box {
       flex: 1;
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(15px);
-      padding: 20px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.15);
       min-width: 280px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .box:hover {
@@ -58,47 +80,37 @@
       box-shadow: 0 0 20px rgba(106, 17, 203, 0.4);
     }
 
-    label {
-      font-weight: 600;
-      font-size: 1.1em;
-    }
-
+    label { font-weight: 600; font-size: 1.1em; }
     select, textarea {
       width: 100%;
       margin-top: 10px;
-      font-size: 1.1em;
-      padding: 14px;
+      font-size: 1em;
+      padding: 12px;
       border-radius: 12px;
       border: none;
       resize: none;
       background: rgba(255,255,255,0.1);
       color: white;
       outline: none;
-      transition: box-shadow 0.3s;
+      transition: 0.3s;
     }
-
     select:focus, textarea:focus {
       box-shadow: 0 0 10px #4facfe;
     }
-
     textarea[readonly] { cursor: not-allowed; }
 
-    .buttons {
-      text-align: center;
-      margin: 20px 0;
-    }
-
+    .buttons { text-align: center; margin-top: 25px; }
     button {
-      font-size: 1.05em;
-      padding: 12px 20px;
+      font-size: 1em;
+      padding: 12px 18px;
       border-radius: 30px;
       border: none;
       cursor: pointer;
-      margin: 6px;
       color: white;
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.25s, box-shadow 0.25s;
+      background: linear-gradient(45deg,#6a11cb,#2575fc);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin: 6px;
+      transition: 0.25s;
     }
     button:hover {
       transform: scale(1.08);
@@ -107,203 +119,159 @@
 
     footer {
       text-align: center;
-      margin: 50px auto 40px;
-      font-size: 0.9em;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      max-width: 700px;
-      padding: 30px 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.05);
-      animation: fadeIn 2s ease;
+      padding: 40px 10px;
+      background: rgba(255,255,255,0.05);
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
-
     footer img {
-      width: 140px;
-      height: 140px;
+      width: 140px; height: 140px;
       border-radius: 50%;
-      border: 4px solid transparent;
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      padding: 3px;
+      border: 3px solid #fff;
       object-fit: cover;
-      box-shadow: 0 0 25px rgba(106, 17, 203, 0.6);
-      transition: all 0.3s ease;
-      opacity: 0;
-      animation: popIn 1.5s forwards;
+      box-shadow: 0 0 25px rgba(79,172,254,0.6);
     }
+    footer h3 { margin: 10px 0 5px; }
+    footer p, footer a { color: #ccc; text-decoration: none; }
+    footer a:hover { text-decoration: underline; color: #fff; }
 
-    @keyframes popIn {
-      from { transform: scale(0.6); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    footer img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 35px rgba(79,172,254,0.8);
-    }
-
-    footer h3 {
-      margin-top: 15px;
-      font-weight: 700;
-      font-size: 1.3em;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-
-    footer a {
-      color: #4facfe;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .dark {
-      background: linear-gradient(135deg, #000, #111, #1a1a1a);
-      color: #eee;
-    }
-
-    .dark footer, .dark .box {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .loading { animation: blink 1s infinite; }
-    @keyframes blink { 50% { opacity: 0.4; } }
+    .dark { background: linear-gradient(135deg, #000, #111, #1a1a1a); color: #eee; }
   </style>
 </head>
 <body>
-  <header>🌍 Penerjemah Bahasa Moni & Wolani</header>
 
-  <div class="container">
-    <div class="box">
-      <label for="lang-from">Dari:</label>
-      <select id="lang-from">
-        <option value="moni">Moni Migani</option>
-        <option value="wolani">Wolani</option>
-        <option value="id">Indonesia</option>
-      </select>
-      <textarea id="input-text" rows="8" placeholder="✍️ Tulis teks di sini :) "></textarea>
+  <header>
+    <h1>🌍 Penerjemah Bahasa Moni & Wolani</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HALAMAN HOME -->
+  <section id="home">
+    <h2 style="text-align:center;">🗣️ Fitur Penerjemah</h2>
+    <div class="container">
+      <div class="box">
+        <label for="lang-from">Dari:</label>
+        <select id="lang-from">
+          <option value="moni">Moni Migani</option>
+          <option value="wolani">Wolani</option>
+          <option value="id">Indonesia</option>
+        </select>
+        <textarea id="input-text" rows="8" placeholder="✍️ Tulis teks di sini..."></textarea>
+      </div>
+
+      <div class="box">
+        <label for="lang-to">Ke:</label>
+        <select id="lang-to">
+          <option value="id">Indonesia</option>
+          <option value="moni">Moni Migani</option>
+          <option value="wolani">Wolani</option>
+        </select>
+        <textarea id="output-text" rows="8" placeholder="✨ Hasil terjemahan muncul di sini..." readonly></textarea>
+      </div>
     </div>
 
-    <div class="box">
-      <label for="lang-to">Ke:</label>
-      <select id="lang-to">
-        <option value="id">Indonesia</option>
-        <option value="moni">Moni Migani</option>
-        <option value="wolani">Wolani</option>
-      </select>
-      <textarea id="output-text" rows="8" placeholder="✨ Hasil terjemahan akan muncul di sini :)" readonly></textarea>
+    <div class="buttons">
+      <button onclick="swapLanguages()">🔄 Tukar</button>
+      <button onclick="terjemahkan()">🚀 Terjemahkan</button>
+      <button onclick="speak()">🔊 Baca Suara</button>
+      <button onclick="copyText()">📋 Copy</button>
+      <button onclick="toggleMode()">🌙/☀️ Mode</button>
     </div>
-  </div>
+  </section>
 
-  <div class="buttons">
-    <button onclick="buttonClick();swapLanguages()">🔄 Tukar</button>
-    <button onclick="buttonClick();terjemahkan()">🚀 Terjemahkan</button>
-    <button onclick="buttonClick();speak()">🔊 Baca Suara</button>
-    <button onclick="buttonClick();startRecognition()">🎤 Input Suara</button>
-    <button onclick="buttonClick();copyText()">📋 Copy</button>
-    <button onclick="buttonClick();downloadTxt()">💾 Download</button>
-    <button onclick="buttonClick();toggleMode()">🌙/☀️ Mode</button>
-  </div>
-
-  <footer>
-    <img src="./0710f6fd-6ebf-4bea-b010-4247adb7c37e.jpg" alt="Foto Profil"/>
-    <h3>NELSON AGIMBAU</h3>
-    <p><strong>Email:</strong> <a href="mailto:bleknarson@gmail.com">bleknarson@gmail.com</a></p>
-    <p><strong>Kontak:</strong> +62 877 4836 0368</p>
-    <p>🌱 Pengembang pemula yang bertekad melestarikan <b>Bahasa Moni Migani</b> & <b>Bahasa Wolani</b><br>
-       dengan teknologi modern, penuh semangat dan cinta budaya ✨
+  <!-- HALAMAN ABOUT -->
+  <section id="about">
+    <h2 style="text-align:center;">📖 Tentang Website</h2>
+    <p style="max-width:800px;margin:auto;text-align:justify;">
+      Website ini dikembangkan untuk membantu pelestarian <b>Bahasa Moni Migani</b> dan <b>Bahasa Wolani</b>.
+      Dengan fitur penerjemahan dua arah, suara, dan tampilan modern, situs ini menjadi jembatan antara bahasa daerah dan Bahasa Indonesia.
     </p>
-  </footer>
+  </section>
 
-<script>
-  // 🔊 Efek suara klik
-  const clickSound = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5a1e0b8b6a.mp3?filename=ui-click-153732.mp3");
-  function buttonClick() { clickSound.play(); }
+  <!-- HALAMAN CONTACT -->
+  <section id="contact">
+    <h2 style="text-align:center;">📞 Kontak</h2>
+    <p style="text-align:center;">Hubungi pengembang melalui email atau media sosial berikut:</p>
+    <footer>
+      <img src="./DSC00592.JPG" alt="Foto Profil" />
+      <h3>NELSON AGIMBAU</h3>
+      <p><strong>Email:</strong> <a href="mailto:bleknarson@gmail.com">bleknarson@gmail.com</a></p>
+      <p><strong>Kontak:</strong> +62 877 4836 0368</p>
+      <p>🌱 Pengembang pemula yang bertekad melestarikan <b>Bahasa Moni</b> & <b>Bahasa Wolani</b></p>
+    </footer>
+  </section>
 
-  // 🔠 Kamus
-  const kamusMoniKeId={"aina":"kakak","ani":"adik","du":"air","ama":"mama","aita":"bapak","anaju":"kakak perempuan",
-  "mbao":"tete","bawah":"nenek","amakane":"terimakasih","amakanie":"terimakasih semua","imba":"rumah",
-  "tali":"pasir","boh":"kayu","usah":"api","bigapa":"para-para","taipa":"siang","timunggaga":"malam",
-  "goendo":"sore","bega":"burung","tau":"setan","duna":"pintu","ambige":"duduk","bagu":"panjang",
-  "puji":"pisang","wah":"keladi","mbalaga":"ubi jalar"};
-  const kamusWolaniKeId={"nio":"mama/mama ade","aita":"bapak","enyaa":"adik/anak","aba":"nenek","nawaa":"kakak",
-  "amai":"tete","nimaitame":"teman/kawan/sahabat","agai":"kamu","aga":"kamu","waii":"dia","nii":"saya",
-  "amano":"terimakasih","gane":"kasihan","kayo":"dimana/kemana","amanoee":"sama-sama","nadii":"lapar",
-  "nokekaoo nadii":"lapar makanan","ai":"(belum ada arti)"};
-  const kamusIdKeMoni=Object.fromEntries(Object.entries(kamusMoniKeId).map(([k,v])=>[v,k]));
-  const kamusIdKeWolani=Object.fromEntries(Object.entries(kamusWolaniKeId).map(([k,v])=>[v,k]));
-
-  function swapLanguages(){
-    const from=document.getElementById("lang-from");
-    const to=document.getElementById("lang-to");
-    [from.value,to.value]=[to.value,from.value];
-  }
-
-  async function terjemahkan(){
-    const input=document.getElementById("input-text").value.toLowerCase().trim();
-    const dari=document.getElementById("lang-from").value;
-    const ke=document.getElementById("lang-to").value;
-    const output=document.getElementById("output-text");
-    if(!input){output.value="⚠️ Masukkan teks dulu.";return;}
-    output.value="⏳ Menerjemahkan...";output.classList.add("loading");
-    let hasil=input;
-    if(dari==="moni"&&ke==="id")hasil=kamusMoniKeId[input]||input;
-    else if(dari==="id"&&ke==="moni")hasil=kamusIdKeMoni[input]||input;
-    else if(dari==="wolani"&&ke==="id")hasil=kamusWolaniKeId[input]||input;
-    else if(dari==="id"&&ke==="wolani")hasil=kamusIdKeWolani[input]||input;
-    else hasil="⚠️ Kombinasi belum didukung langsung.";
-    output.value=hasil;output.classList.remove("loading");
-  }
-
-  function speak(){
-    const text=document.getElementById("output-text").value;
-    if(!text)return;
-    const utter=new SpeechSynthesisUtterance(text);
-    utter.lang="id-ID";utter.rate=1;
-    speechSynthesis.speak(utter);
-  }
-
-  function startRecognition(){
-    if(!('webkitSpeechRecognition'in window)){alert("Browser tidak mendukung Speech Recognition");return;}
-    const recognition=new webkitSpeechRecognition();
-    recognition.lang="id-ID";recognition.start();
-    recognition.onresult=function(e){
-      document.getElementById("input-text").value=e.results[0][0].transcript;
+  <script>
+    // 🔠 Kamus Bahasa Moni & Wolani
+    const kamusMoniKeId = {
+      "aina":"kakak","ani":"adik","du":"air","ama":"mama","aita":"bapak",
+      "anaju":"kakak perempuan","mbao":"tete","bawah":"nenek",
+      "amakane":"terimakasih","amakanie":"terimakasih semua","imba":"rumah",
+      "tali":"pasir","boh":"kayu","usah":"api","bigapa":"para-para",
+      "taipa":"siang","timunggaga":"malam","goendo":"sore",
+      "bega":"burung","tau":"setan","duna":"pintu","ambige":"duduk",
+      "bagu":"panjang","puji":"pisang","wah":"keladi","mbalaga":"ubi jalar"
     };
-  }
 
-  function copyText(){
-    const text=document.getElementById("output-text").value;
-    if(!text){alert("Tidak ada teks untuk disalin.");return;}
-    navigator.clipboard.writeText(text);
-    alert("✅ Teks berhasil disalin!");
-  }
+    const kamusWolaniKeId = {
+      "nio":"mama/mama ade","aita":"bapak","enyaa":"adik/anak","aba":"nenek",
+      "nawaa":"kakak","amai":"tete","nimaitame":"teman/kawan/sahabat",
+      "agai":"kamu","aga":"kamu","waii":"dia","nii":"saya","amano":"terimakasih",
+      "gane":"kasihan","kayo":"dimana/kemana","amanoee":"sama-sama",
+      "nadii":"lapar","nokekaoo nadii":"lapar makanan","ai":"(belum ada arti)"
+    };
 
-  function downloadTxt(){
-    const text=document.getElementById("output-text").value;
-    if(!text){alert("Tidak ada teks untuk disimpan.");return;}
-    const blob=new Blob([text],{type:"text/plain"});
-    const link=document.createElement("a");
-    link.href=URL.createObjectURL(blob);
-    link.download="hasil_terjemahan.txt";
-    link.click();
-  }
+    const kamusIdKeMoni = Object.fromEntries(Object.entries(kamusMoniKeId).map(([k,v])=>[v,k]));
+    const kamusIdKeWolani = Object.fromEntries(Object.entries(kamusWolaniKeId).map(([k,v])=>[v,k]));
 
-  // 🌙 Mode gelap & terang dengan transisi lembut
-  function toggleMode(){
-    document.body.classList.toggle("dark");
-    localStorage.setItem("mode",document.body.classList.contains("dark")?"dark":"light");
-  }
+    // Fungsi terjemahan
+    function swapLanguages(){
+      const from=document.getElementById("lang-from");
+      const to=document.getElementById("lang-to");
+      [from.value,to.value]=[to.value,from.value];
+    }
 
-  if(localStorage.getItem("mode")==="dark"){document.body.classList.add("dark");}
-</script>
+    async function terjemahkan(){
+      const input=document.getElementById("input-text").value.toLowerCase().trim();
+      const dari=document.getElementById("lang-from").value;
+      const ke=document.getElementById("lang-to").value;
+      const output=document.getElementById("output-text");
+      if(!input){output.value="⚠️ Masukkan teks dulu.";return;}
+      output.value="⏳ Menerjemahkan...";
+      let hasil=input;
+      if(dari==="moni"&&ke==="id")hasil=kamusMoniKeId[input]||input;
+      else if(dari==="id"&&ke==="moni")hasil=kamusIdKeMoni[input]||input;
+      else if(dari==="wolani"&&ke==="id")hasil=kamusWolaniKeId[input]||input;
+      else if(dari==="id"&&ke==="wolani")hasil=kamusIdKeWolani[input]||input;
+      else hasil="⚠️ Kombinasi belum didukung.";
+      output.value=hasil;
+    }
+
+    function speak(){
+      const text=document.getElementById("output-text").value;
+      if(!text)return;
+      const utter=new SpeechSynthesisUtterance(text);
+      utter.lang="id-ID";utter.rate=1;
+      speechSynthesis.speak(utter);
+    }
+
+    function copyText(){
+      const text=document.getElementById("output-text").value;
+      if(!text){alert("Tidak ada teks untuk disalin.");return;}
+      navigator.clipboard.writeText(text);
+      alert("✅ Teks disalin!");
+    }
+
+    function toggleMode(){
+      document.body.classList.toggle("dark");
+      localStorage.setItem("mode",document.body.classList.contains("dark")?"dark":"light");
+    }
+
+    if(localStorage.getItem("mode")==="dark"){document.body.classList.add("dark");}
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
