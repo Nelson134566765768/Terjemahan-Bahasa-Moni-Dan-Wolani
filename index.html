@@ -6,17 +6,13 @@
   <title>Penerjemah Bahasa Moni & Wolani</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0; padding: 0;
       color: white;
       background: radial-gradient(circle at top left, #1a1a40, #090921);
       background-attachment: fixed;
-      overflow-x: hidden;
-      transition: background 0.8s ease, color 0.8s ease;
     }
-
     header {
       text-align: center;
       padding: 20px;
@@ -25,93 +21,86 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       position: sticky;
       top: 0;
-      z-index: 999;
     }
     header h1 {
-      margin: 0;
-      font-size: 2em;
+      font-size: 1.8em;
       color: #fff;
       text-shadow: 0 0 15px #6a11cb, 0 0 25px #2575fc;
-    }
-
-    nav {
-      margin-top: 10px;
     }
     nav a {
       color: #4facfe;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
     }
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #6a11cb;
-    }
+    nav a:hover { color: #fff; text-shadow: 0 0 10px #6a11cb; }
 
     .container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 20px;
-      margin-top: 60px;
+      padding: 50px 10%;
+      flex-wrap: wrap;
     }
     .box {
+      background: rgba(255,255,255,0.07);
+      border-radius: 15px;
+      padding: 20px;
       flex: 1;
       min-width: 280px;
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 20px;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(106, 17, 203, 0.4);
+      backdrop-filter: blur(10px);
     }
 
-    label { font-weight: 600; font-size: 1.1em; }
-    select, textarea {
+    /* 🖤 Warna dropdown gelap */
+    select {
       width: 100%;
       margin-top: 10px;
-      font-size: 1em;
-      padding: 12px;
-      border-radius: 12px;
+      padding: 10px;
+      border-radius: 10px;
       border: none;
-      resize: none;
+      background: #1f1f2e; /* ganti jadi gelap */
+      color: white;
+      font-size: 1em;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+    }
+    select option {
+      background: #0f0f20; /* warna gelap di dalam dropdown */
+      color: white;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
       background: rgba(255,255,255,0.1);
       color: white;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    .buttons { text-align: center; margin-top: 25px; }
-    button {
       font-size: 1em;
-      padding: 12px 18px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      color: white;
-      background: linear-gradient(45deg,#6a11cb,#2575fc);
-      margin: 6px;
-      transition: 0.25s;
-    }
-    button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(106,17,203,0.6);
+      resize: none;
     }
 
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(45deg,#6a11cb,#2575fc);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    button:hover { transform: scale(1.05); }
     footer {
       text-align: center;
-      padding: 40px 10px;
-      background: rgba(255,255,255,0.05);
-      margin-top: 60px;
+      padding: 20px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>🌍 Penerjemah Bahasa Moni & Wolani</h1>
     <nav>
@@ -142,7 +131,7 @@
     </div>
   </div>
 
-  <div class="buttons">
+  <div style="text-align:center;">
     <button onclick="swapLanguages()">🔄 Tukar</button>
     <button onclick="terjemahkan()">🚀 Terjemahkan</button>
   </div>
@@ -150,7 +139,6 @@
   <footer>© 2025 Nelson Agimbau</footer>
 
   <script>
-    // 🔠 Kamus Bahasa Moni & Wolani
     const kamusMoniKeId = {
       "aina":"kakak","ani":"adik","du":"air","ama":"mama","aita":"bapak",
       "anaju":"kakak perempuan","mbao":"tete","bawah":"nenek",
@@ -191,5 +179,6 @@
       output.value=hasil;
     }
   </script>
+
 </body>
 </html>
