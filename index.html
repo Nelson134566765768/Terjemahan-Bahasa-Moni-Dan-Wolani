@@ -58,7 +58,7 @@
       padding: 10px;
       border-radius: 10px;
       border: none;
-      background: #1f1f2e; /* ganti jadi gelap */
+      background: #1f1f2e;
       color: white;
       font-size: 1em;
       outline: none;
@@ -66,7 +66,7 @@
       cursor: pointer;
     }
     select option {
-      background: #0f0f20; /* warna gelap di dalam dropdown */
+      background: #0f0f20;
       color: white;
     }
 
@@ -90,8 +90,44 @@
       border: none;
       border-radius: 25px;
       cursor: pointer;
+      transition: 0.25s;
     }
-    button:hover { transform: scale(1.05); }
+    button:hover { transform: scale(1.05); box-shadow: 0 0 15px #6a11cb; }
+
+    /* 🧩 Bagian Inti Penjelasan */
+    #penjelasan {
+      margin: 60px auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 25px rgba(79,172,254,0.2);
+    }
+    #penjelasan h2 {
+      text-align: center;
+      color: #4facfe;
+      text-shadow: 0 0 10px #2575fc;
+    }
+    #penjelasan p {
+      line-height: 1.7;
+      text-align: justify;
+      font-size: 1em;
+    }
+    #penjelasan pre {
+      background: rgba(255,255,255,0.08);
+      padding: 10px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    #penjelasan code {
+      color: #4facfe;
+      background: rgba(255,255,255,0.05);
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -136,6 +172,29 @@
     <button onclick="terjemahkan()">🚀 Terjemahkan</button>
   </div>
 
+  <!-- 🧩 Bagian Inti Penjelasan -->
+  <section id="penjelasan">
+    <h2>🧩 Inti Penjelasan</h2>
+    <p><b>1. Kamus (data terjemahan)</b><br>
+    👉 Ini adalah tempat kamu menulis daftar kata atau kalimat di JavaScript.  
+    Misalnya:
+    <pre>
+"saya minum": "ago du nuiya",
+"saya makan": "ago ena",
+    </pre>
+    Jadi, setiap kata atau kalimat kamu cocokkan sendiri di bagian kamus kode.</p>
+
+    <p><b>2. Input dari pengguna</b><br>
+    👉 Ini teks yang kamu ketik di kolom penerjemahan.  
+    Misalnya kamu tulis: <code>Saya minum</code> atau <code>saya minum</code>.  
+    Hasilnya tetap sama, karena sistem otomatis ubah huruf besar menjadi huruf kecil sebelum diterjemahkan.</p>
+
+    <p style="text-align:center;color:#4facfe;font-weight:600;">
+      💬 Jadi, di kamus semua huruf wajib kecil,  
+      tapi saat menerjemahkan kamu bebas pakai huruf besar atau kecil.
+    </p>
+  </section>
+
   <footer>© 2025 Nelson Agimbau</footer>
 
   <script>
@@ -146,7 +205,8 @@
       "tali":"pasir","boh":"kayu","usah":"api","bigapa":"para-para",
       "taipa":"siang","timunggaga":"malam","goendo":"sore",
       "bega":"burung","tau":"setan","duna":"pintu","ambige":"duduk",
-      "bagu":"panjang","puji":"pisang","wah":"keladi","mbalaga":"ubi jalar","malam":"timu","saya minum":"ago du nuiya",
+      "bagu":"panjang","puji":"pisang","wah":"keladi","mbalaga":"ubi jalar",
+      "malam":"timu","saya minum":"ago du nuiya",
     };
     const kamusWolaniKeId = {
       "nio":"mama/mama ade","aita":"bapak","enyaa":"adik/anak","aba":"nenek",
@@ -182,7 +242,3 @@
 
 </body>
 </html>
-
-
-
-
